@@ -10,7 +10,7 @@ mkdir mutation_numbers_per_TF
 for i in ~/project/bedfiles/*.bed;
 do
 	mybedfilename=`basename $i`
-	for b in ./final/Metastatic_Patients/annotated_full*.vcf;
+	for b in ./final/run1/annotated_full*.vcf;
 	do
 		myvcffilename=`basename $b`
 		echo "Intersecting $mybedfilename and $myvcffilename"
@@ -31,7 +31,7 @@ do
 	echo "Extending $mybedfilename 5000bp from both sides"
 	bedtools slop -i $i -b 5000 -g ~/project/reference_files/hg37.chrom.sizes.txt > long_range_density_analysis/extended_beds/$mybedfilename\_5kbothsides.bed
 	
-	for b in ./final/Metastatic_Patients/annotated_full*.vcf;
+	for b in ./final/run1/annotated_full*.vcf;
         do
         myvcffilename=`basename $b`
         echo "Intersecting $mybedfilename with $myvcffilename"

@@ -35,10 +35,11 @@ RUN echo "deb https://cloud.r-project.org/bin/linux/ubuntu xenial/" >>/etc/apt/s
 #RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E084DAB9
 RUN apt-get update &&  apt-get install -y --allow-unauthenticated  r-base r-base-dev
 
-ADD ./myscript.R /usr/myscript.R
+ADD /project/codes/myscript.R /usr/myscript.R
 RUN Rscript /usr/myscript.R
 RUN echo "Java Check..." && java -version
 RUN echo "Python Check" && python --version && pip --version
 RUN echo "R check" && R --version
 WORKDIR /project/Batch1/
-#CMD sh firestarter.sh
+
+CMD sh firestarter.sh

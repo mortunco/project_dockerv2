@@ -5,8 +5,10 @@ To set this pipeline up:
 	tar xvzf LL_pipeline.tar.gz and cd LL_pipeline
 2) Build your image with. 
 	$docker build -t ll_pipeline . 
-3) Move your input.vcf.gz in to /project/Batch1/Metastatic_Patients/
-4) Run the container. 
+3) Create following directoryies under /project/Batch1 with:
+	mkdir /project/Batch1/input/run1 && mkdir /project/Batch1/final 
+4) Move your input.vcf.gz in to /project/Batch1/input/run1/
+5) Run the container. 
 	$docker run --user=$UID -it  -v `pwd`\/project/:/project ll_pipeline
 
 
