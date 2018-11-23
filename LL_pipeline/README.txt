@@ -1,12 +1,13 @@
 Hello!
 To set this pipeline up:
 0) Please back up your data. Its my first time working with the docker environment.
-1) Download tar ball and untar it
-	tar xvzf LL_pipeline.tar.gz and cd LL_pipeline
+1) Download our pipeline and cd in to LL_pipeline directory.
+	git clone https://github.com/mortunco/project_dockerv2.git and cd LL_pipeline
 2) Build your image with. 
 	$docker build -t ll_pipeline . 
 3) Create following directoryies under /project/Batch1 with:
-	mkdir /project/Batch1/input/run1 && mkdir /project/Batch1/final 
+	mkdir -p project/Batch1/input/run1
+	mkdir -p project/Batch1/final 
 4) Move your input.vcf.gz in to /project/Batch1/input/run1/
 5) Run the container. 
 	$docker run --user=$UID -it  -v `pwd`\/project/:/project ll_pipeline
