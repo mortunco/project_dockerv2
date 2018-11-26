@@ -47,7 +47,7 @@ for ( i in 1:nrow(peak_mutation_table) ){
     for (j in 1:nrow(subsetted_mutations)){
       index= index+1
       mydf[index,1]=subsetted_mutations[j,'peakno']
-      mydf[index,2]=midpoint - subsetted_mutations[j,"start"]
+      mydf[index,2]=-midpoint + subsetted_mutations[j,"start"]
     }
     
   }
