@@ -21,7 +21,7 @@ While in the environment. Go to the Batch1 directory. firestarter.sh bash script
 
 ```$sh firestarter.sh path``` 
 
-Notes:
+# Notes: #
 (Current build of the pipeline is grch38 also vcf format is set to strelka. If these are not your parameters, please contact to me.)
 (I totally agree that firestarter.sh is not the best solution for the case but it is originally built for docker where it directly locates image at ~. To be able to run singularity shell without sudo, i came up with this work around. So please ask if you need assitance on this issue.)
 
