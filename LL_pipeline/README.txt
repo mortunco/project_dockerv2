@@ -12,8 +12,6 @@ Create neccasary file structure on Batch1. This is very important because otherw
 
 ```$mkdir -p input/run1 && mkdir final```
 
-## Setup is done ##
-
 ## Running the pipeline ##
 Go back to the location where ll_pipeline_environment.sif is located and initiate shell promt with ll_pipeline_environement.
 
