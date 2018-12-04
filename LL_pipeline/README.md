@@ -3,7 +3,7 @@ To set this pipeline up:
 
 Please back up your data. Its my first time working with singularity environement. 
 
-## setup ##
+# Setup #
 In your home directory or desired directory. Download SIF file. Then create a project directory.
 
 ```$mkdir project && cd project && git clone -b singularity_adoptation https://github.com/mortunco/project_dockerv2.git```
@@ -12,7 +12,7 @@ Create neccasary file structure on Batch1. This is very important because otherw
 
 ```$mkdir -p input/run1 && mkdir final```
 
-## Running the pipeline ##
+# Running the pipeline #
 Go back to the location where ll_pipeline_environment.sif is located and initiate shell promt with ll_pipeline_environement.
 
 ```$singularity shell ll_pipeline_environment.sif```
