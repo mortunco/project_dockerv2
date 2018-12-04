@@ -16,6 +16,7 @@ parser.add_argument('-p',type=str, help='path of the top folder which contains i
 parser.add_argument('-l',type=str, help='bed formatted full file path that tell in which locations we should survey.')
 parser.add_argument('-it',type=int,help='Number of iterations will be run by bootstrapping step. Default = 1000', default=1000)
 parser.add_argument('-vf',type=str,help='what is the source of vcf? Currently allow ones= ICGC consensu, dkfz, mutect, strelka',default='consensus')
+parser.add_argument('-ref',type=str,help='path to reference dictionaries directory.')
 args=parser.parse_args()
 
 print '### Input files must be in zipped format. Otherwise, code will not be reliable ###'
