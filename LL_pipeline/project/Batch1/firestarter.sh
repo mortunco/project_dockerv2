@@ -9,7 +9,7 @@ mypath=$1
 echo 'Welcome to our initial pipeline !'
 echo 'First stage is starting!'
 ### Phase 1: Mutation Number Calculation & Randomsation ###
-python -u $mypath/project/codes/sfsdf_short.py -p '/project/Batch1' -l '/project/bedfiles/Clinical_AR_raw.bed' -it 5 -vf strelka
+python -u $mypath/project/codes/sfsdf_short.py -p "$mypath/project/Batch1" -l "$mypath/project/bedfiles/Clinical_AR_raw.bed" -it 5 -vf strelka
 echo 'First stage is done !'
 
 echo 'Second stage is starting. TF mutation density analysis initiated'
