@@ -1,4 +1,0 @@
-version0: java installer did not worked. Revised and replaced in version1.
-version1: java worked. vcf annotation snpSIFT varType did not match with the given input. Annotation part was recoded in a way that passes all of the input mutation without doing any filtration. annotation line replaces with zcat input.vcf.gz 
-version3:talked to Marc about filtration. Filtration was brought back. It only filters PASS and (removes RS ones). The input should be snp mutations where REF and ALT have one letter. Filtration string is changed to "\"(FILTER = 'PASS') && (! ID =~ 'rs')\""
-version4:build errors were detected. Dockerfile edited.
