@@ -8,12 +8,12 @@ In your home directory or desired directory. Download SIF file. Then create a pr
 
 ```$mkdir project && cd project && git clone -b singularity_adoptation https://github.com/mortunco/project_dockerv2.git```
 
-Create neccasary file structure on Batch1. This is very important because otherwie the software will not work. Go into ```project_dockerv2/LL_pipeline/project/Batch1/```. Generate ```input/run1``` and ```final``` directories under Batch1. Finall move your compressed vcf file in to input/run1 directory.
+Create neccasary file structure on Batch1. This is very important because otherwie the software will not work. Go into ```project_dockerv2/LL_pipeline/project/Batch1/```. Generate ```input/run1``` and ```final``` directories under Batch1. Finally move your compressed vcf file in to input/run1 directory.
 
 ```$mkdir -p input/run1 && mkdir final```
 
 # Running the pipeline #
-Go back to the location where ll_pipeline_environment.sif is located and initiate shell promt with ll_pipeline_environement.
+Go back to the location where ```ll_pipeline_environment.sif``` is located and initiate shell promt with ll_pipeline_environement.
 
 ```$singularity shell ll_pipeline_environment.sif```
 
