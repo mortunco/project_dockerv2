@@ -1,21 +1,32 @@
 Hello!
 To set this pipeline up:
-0) Please back up your data. Its my first time working with the docker environment.
-1) Download our pipeline and cd in to LL_pipeline directory.
-	git clone https://github.com/mortunco/project_dockerv2.git and cd LL_pipeline
-2) Build your image with. 
-	$docker build -t ll_pipeline . 
-3) Create following directoryies under /project/Batch1 with:
-	mkdir -p project/Batch1/input/run1
-	mkdir -p project/Batch1/final 
-4) Move your input.vcf.gz in to /project/Batch1/input/run1/
-5) Run the container. 
-	$docker run --user=$UID -it  -v `pwd`\/project/:/project ll_pipeline
 
+Please back up your data. Its my first time working with singularity environement. 
+
+## setup ##
+In your home directory or desired directory. Download SIF file. Then create a project directory.
+
+`$mkdir project && cd project && git clone -b singularity_adoptation https://github.com/mortunco/project_dockerv2.git`
+
+Create neccasary file structure on Batch1. This is very important because otherwie the software will not work. Go into `project_dockerv2/LL_pipeline/project/Batch1/`. Generate `input/run1` and `final` directories under Batch1. Finall move your compressed vcf file in to input/run1 directory.
+
+`$mkdir -p input/run1 && mkdir final`
+
+## Setup is done ##
+
+## Running the pipeline ##
+Go back to the location where ll_pipeline_environment.sif is located and initiate shell promt with ll_pipeline_environement.
+
+`$singularity shell ll_pipeline_environment.sif`
+
+While in the environment. Go to the Batch1 directory. firestarter.sh bash script will initiate the series of scripts. However, because of the singularity adoptation I couldnt figure out the pathing very well. So I need your help with inputting the correct path. As stated in the firestarter.sh, absolute path to /some/path/to/project/directory/project_dockerv2/LL_pipeline/ is required. Please prove this and initiate the script.
+
+`$sh firestarter.sh path` 
 
 Notes:
-“`pwd`\/project/” attaches the project its child directories to the docker container as a volume.
-—user=$UID was solved my read/write permission issues.
+(Current build of the pipeline is grch38 also vcf format is set to strelka. If these are not your parameters, please contact to me.)
+(I totally agree that firestarter.sh is not the best solution for the case but it is originally built for docker where it directly locates image at ~. To be able to run singularity shell without sudo, i came up with this work around. So please ask if you need assitance on this issue.)
+
 
 Method Description:
 ###Analysis Part 1###
@@ -29,4 +40,5 @@ In calculation of mutation ratios of each TF (in ~/project/bedfiles/). Mutation 
 
 ###Analysis Part 3###
 In this part, distribution of the mutations across TF binding regions are calculated. To view the broad picture, each peak of TF is extended by 5000bp from both sides. Then mutations are mapped on these regions. Finally, all of the peaks are comprised and general distribution of mutation on these peaks are visualised. 
+
 
