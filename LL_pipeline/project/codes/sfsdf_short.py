@@ -82,13 +82,13 @@ os.chdir(topdirectory)
 print whattimeisit(),os.getcwd()
 
 bed_file_input=args.l
-chromsizes='/project/reference_files/hg38.chrom.sizes.txt'
+chromsizes=args.ref +'/project/reference_files/hg38.chrom.sizes.txt'
 bedtoolspath='/usr/bin/bedtools'
 randombedcount=args.it
 SnpSiftjarpath='/snpEff/SnpSift.jar'
 SnpEffjarpath='/snpEff/snpEff.jar'
 annotation_file_path='/mnt/kufs/scratch/tmorova15/references/common_all_20160601.vcf'
-gapped_genome_file='/project/reference_files/gap_regions_grch38.bed'
+gapped_genome_file=args.ref +'/project/reference_files/gap_regions_grch38.bed'
 
 filters={}
 ### SNP ###
