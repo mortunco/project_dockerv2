@@ -1,18 +1,17 @@
-echo "Please run the script with"
-echo "the absolute path to project_dockerv2/LL_pipeline/project directory"
-echo "for example, if this is located at your home directory than it should be"
+echo "Please run the script with the absolute path to project_dockerv2/LL_pipeline/project directory"
+echo "For example, if this is located at your home directory than it should be"
 echo "/home/favorite_user_name/some/directories/project_dockerv2/LL_pipeline/"
 echo "Script will add this prefix to the relative paths"
-echo "to input run it like sh firestarter.sh /home/favorite_user_name/some/directories/project_dockerv2/LL_pipeline/"
+echo ">To input run it like sh firestarter.sh /home/favorite_user_name/some/directories/project_dockerv2/LL_pipeline/ \n\n\n\n\n"
 mypath=$1
 
-echo 'Welcome to our initial pipeline !'
-echo 'First stage is starting!'
+echo '!!! --- Welcome to our initial pipeline --- !!!'
+echo '!! First stage is starting !!'
 ### Phase 1: Mutation Number Calculation & Randomsation ###
-python -u $mypath/project/codes/sfsdf_short.py -p "$mypath/project/Batch1" -l "$mypath/project/bedfiles/Clinical_AR_raw.bed" -it 5 -vf strelka
-echo 'First stage is done !'
+python -u $mypath/project/codes/sfsdf_short.py -p "$mypath/project/Batch1" -l "$mypath/project/bedfiles/Clinical_AR_raw.bed" -it 5 -vf strelka -ref $mypath
+echo '!! First stage is done !!'
 
-echo 'Second stage is starting. TF mutation density analysis initiated'
+echo '!! Second stage is starting. TF mutation density analysis initiated !!'
 ### Phase x: Mutation numbers of each TF ###
 mkdir mutation_numbers_per_TF
 for i in $mypath/project/bedfiles/*.bed;
@@ -28,9 +27,9 @@ done
 
 Rscript $mypath/project/codes/codetobuildthistable_peakOverlapWithAR.R
 Rscript $mypath/project/codes/COLLABORATION_Mutation_TF_dotplot.R
-echo 'TF mutation density analysis finished !'
+echo '!! TF mutation density analysis finished !!\n\n\n'
 
-echo 'Long distance mutation density analysis initiated'
+echo '!! Long distance mutation density analysis initiated !! '
 mkdir  -p long_range_density_analysis/extended_beds
 mkdir -p long_range_density_analysis/mutation_files_in_txt
 for i in $mypath/project/bedfiles/*.bed;
@@ -50,4 +49,4 @@ do
 	long_range_density_analysis/extended_beds/$mybedfilename\_5kbothsides.bed $mybedfilename\_$myvcffilename\_analysis long_range_density_analysis/
 done
 
-echo 'All three analyses finished. Bye bye! :D'
+echo '!! All three analyses finished. Bye bye! :D !!'
