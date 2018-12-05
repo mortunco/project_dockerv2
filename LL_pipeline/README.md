@@ -3,6 +3,8 @@ To set this pipeline up:
 
 Please back up your data. Its my first time working with singularity environement. 
 
+Download LackLabEnvironment.sif --> https://www.dropbox.com/s/wgibjau7k120d3s/ll_pipeline_environment.sif?dl=0
+
 # Setup #
 In your home directory or desired directory. Download SIF file. Then create a project directory.
 
